@@ -1,12 +1,9 @@
 name: Build and deploy
-
-on:
+'on':
   push:
-    branches: [ main ]
-    
-  # Run workflow manually
-  workflow_dispatch:
-
+    branches:
+      - main
+  workflow_dispatch: null
 jobs:
   build:
     name: Build
@@ -16,8 +13,10 @@ jobs:
         uses: actions/checkout@main
       - name: Install dependencies
         run: npm ci
+        working-directory: ./CP3407Project/my-app/src/package.json
       - name: Build dependencies
         run: npm run build
+        working-directory: ./CP3407Project/my-app/src/package.json
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
@@ -39,5 +38,5 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
-        env: 
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        env:
+          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
