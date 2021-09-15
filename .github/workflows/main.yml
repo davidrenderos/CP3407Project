@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@main
       - name: Install dependencies
         run: npm ci
-        working-directory: /my-app/package.json
+        working-directory: ./CP3407Project/tree/main/my-app
       - name: Build dependencies
         run: npm run build
-        working-directory: /my-app/package.json
+        working-directory: ./CP3407Project/tree/main/my-app
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
