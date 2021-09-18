@@ -37,3 +37,5 @@ Check live site to make sure your changes work and are there, and presto!
 
 Helpful Resources:
 - Git Commands: https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+- React: https://create-react-app.dev/docs/production-build/
+- Live Site: https://test-70a1d.web.app/
