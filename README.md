@@ -10,28 +10,40 @@ The following only needs to be done once:
 You now have the website ready to work on, pulled directly from the main branch.
 
 login to your PC
+
 /////////////////////////////////////////////////////////////////////////////////
+
 git pull origin main
 git checkout -b <branchname> MEANINGFUL TITLE
 git branch, will list all branches and have a * next to the one you are in
+
 /////////////////////////////////////////////////////////////////////////////////
+
 work on feature
 check if it works on local site
 npm run build, on VS Code CMD, this is needed for GitHub action to work!!!
+
 /////////////////////////////////////////////////////////////////////////////////
+
 Choose one:
 git add <filename>
 
 git add *
 
 git add . (I was using this, and it works for adding all files?)
+
 /////////////////////////////////////////////////////////////////////////////////
+
 git commit -m "Commit message"
 git push origin <branchname> same as the one you created earlier
+
 /////////////////////////////////////////////////////////////////////////////////
+
 go to GitHub and create a pull request for your changes
 someone will confirm the changes, and allow it to move to main
+
 /////////////////////////////////////////////////////////////////////////////////
+
 HOPEFULLY the GitHub action works, you can check by clicking actions on the repo
 Check live site to make sure your changes work and are there, and presto!
 

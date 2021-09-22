@@ -1,23 +1,42 @@
-name: Firebase Deploy
-
-on:
+name: Build and deploy
+'on':
   push:
-    branches: 
-    - main
-
+    branches:
+      - main
+  workflow_dispatch: null
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./my-app
+      - name: Build dependencies
+        run: npm run build
+        working-directory: ./my-app
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
         with:
-          node-version: '12'
-      - run: npm ci
-      - run: npm run build
-      - name: GitHub Action for Firebase
-        uses: w9jds/firebase-action@v1.5.0
+          name: build
+          path: build
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with:
+          name: build
+          path: build
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
