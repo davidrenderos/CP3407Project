@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: build
-          path: ./edge-weather/build
+          path: ./edge-weather
   deploy:
     name: Deploy
     needs: build
