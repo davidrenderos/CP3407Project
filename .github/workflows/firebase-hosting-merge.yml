@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: build
-          path: ./edge-weather/build
+          path: ./edge-weather
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
