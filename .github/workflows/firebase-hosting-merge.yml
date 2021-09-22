@@ -3,7 +3,8 @@ name: Build and deploy
   push:
     branches:
       - main
-  workflow_dispatch: null
+  workflow_dispatch: 
+
 jobs:
   build:
     name: Build
@@ -12,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@main
       - name: Install dependencies
+        working-directory: ./edge-weather
         run: npm ci
-        working-directory: ./edge-weather
       - name: Build dependencies
-        run: npm run build
         working-directory: ./edge-weather
+        run: npm run build
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
           name: build
-          path: build
+          path: ./edge-weather/build
   deploy:
     name: Deploy
     needs: build
@@ -33,7 +34,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: build
-          path: build
+          path: ./edge-weather/build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
