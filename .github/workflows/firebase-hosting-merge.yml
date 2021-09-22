@@ -22,7 +22,6 @@ jobs:
         with:
           name: build
           path: build
-  deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
@@ -33,7 +32,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: build
-          path: build/index.html
+          path: build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
