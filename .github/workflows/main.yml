@@ -16,7 +16,7 @@ jobs:
         working-directory: ./edge-weather
       - name: Build dependencies
         run: npm run build
-        working-directory: ./my-app
+        working-directory: ./edge-weather
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
