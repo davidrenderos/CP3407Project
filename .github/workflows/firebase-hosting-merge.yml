@@ -13,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@main
       - name: Install dependencies
-        working-directory: ./edge-weather
+        # working-directory: ./edge-weather
         run: npm ci
       - name: Build dependencies
-        working-directory: ./edge-weather
+        # working-directory: ./edge-weather
         run: npm run build
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
           name: build
-          path: ./edge-weather
+          path: build
   deploy:
     name: Deploy
     needs: build
@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: build
-          path: ./edge-weather
+          path: build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
