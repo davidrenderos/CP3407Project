@@ -22,6 +22,7 @@ git branch, will list all branches and have a * next to the one you are in
 work on feature
 check if it works on local site
 npm run build, on VS Code CMD, this is needed for GitHub action to work!!!
+After downloading dependencies run "npm update" 
 
 /////////////////////////////////////////////////////////////////////////////////
 
