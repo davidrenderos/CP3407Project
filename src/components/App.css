@@ -22,13 +22,13 @@
   
   .search-box {
     width: 100%;
-    margin: 0 0 75px;
+    margin: 0 0 75px 20px;
   }
   
   .search-box .search-bar {
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: none;
   
     appearance: none;
     background: none;
@@ -96,4 +96,90 @@
     font-weight: 700;
     text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
   }
+
+  /* NEW FORECAST CSS */
+
+  .forecast-box {
+    width: auto;
+    position: relative;
+    top: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+  }
   
+  .forecast-box-list-li {
+    list-style-type: none;
+  }
+  
+  .forecast-box-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 30%;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 0px 8px silver;
+    padding-bottom: 10px;
+  }
+  
+  .forecast-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .forecast-day {
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .forecast-temp {
+    padding-bottom: 10px;
+    font-size: 20px;
+  }
+  
+
+
+
+  /* .card {
+    border-radius: var(--main-border-radius);
+}
+
+  .forecast-box {
+    border-radius: var(--main-border-radius);
+    -webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-color--card);
+    color: var(--main-text-color);
+    width: 85%;
+    max-width: 675px;
+    min-height: 300px;
+}
+
+  .forecast-List {
+    list-style-type: none;
+    padding: 0;
+    -webkit-box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+    border-radius: var(--secondary-border-radius);
+    background-color: var(--bg-color--card);
+}
+  
+  .forecast-day {
+    width: 100px;
+    border-radius: var(--secondary-border-radius);
+}
+
+  .forecast-day:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #fff;
+    color: #222831;
+
+    -webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+} */
