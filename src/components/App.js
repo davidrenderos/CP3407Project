@@ -32,9 +32,7 @@ function App() {
     const [location, setLocation] = useState("");
     const [error, setError] = useState("");
 
-    
-
-   
+       
     // Get latitude & longitude from address from Google API
     // Then Get onecall weather API from OpenWeatherMap.org
     const searchStart = evt => { 
@@ -62,22 +60,8 @@ function App() {
             ) ;
         }
     }
-
-        
-    // Get current date
-    const dateBuilder = (d) => {
-      let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        
-      let day = days[d.getDay()];
-      let date = d.getDate();
-      let month = months[d.getMonth()];
-      let year = d.getFullYear();
-    
-      return `${day} ${date} ${month} ${year}`
-    }
-
-    
+     
+       
 
     return (
         <div style={{ backgroundImage: `url(${background})` }}>
