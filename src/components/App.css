@@ -11,7 +11,6 @@
   .App {
     background-size: cover;
     background-position: bottom;
-    
   }
     
   main {
@@ -22,14 +21,22 @@
   
   .top-box {
     width: 100%;
-    margin: 0 0 20px 20px;
-    padding-top: 20px;
+    background: url(../components/assets/background.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+    align-content: center;
+    text-align: center;
+    padding-top: 10px;
   }
-    
-  .search-box .search-bar:focus {
-    background-color: rgba(255, 255, 255, 0.75);
+
+  .title {
+    padding-top: 50px;
   }
-  
+
+  .search-bar {
+    padding-top: 25px;
+  }
+        
 .stretch-card>.card {
   width: 100%;
   min-width: 100%
@@ -49,11 +56,26 @@ body {
   .padding {
       padding: 1.5rem
   }
+  .temp {
+    margin-top: 50px;
+  }
+  .extras {
+    margin-top: 25px;
+  }
 }
 
 @media (max-width:767.98px) {
   .padding {
       padding: 1rem
+  }
+  .title {
+    padding-top: 20px;
+  }
+  .search-bar {
+    padding-top: 10px;
+  }
+  .temp {
+    margin-top: 25px;
   }
 }
 
@@ -90,7 +112,7 @@ body {
 
 .card-weather .card-body:first-child {
   background: url(../components/assets/background.jpg) no-repeat center;
-  background-size: cover
+  background-size: cover;
 }
 
 .card .card-body {
@@ -99,7 +121,7 @@ body {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.25rem
+  padding: 1.25rem;
 }
 
 .card-weather .weather-date-location {
@@ -127,6 +149,15 @@ h6 {
   font-weight: 500
 }
 
+.min-max {
+  font-size: 15px;
+}
+
+.description {
+  align-content: center;
+  text-align: center;
+}
+
 .text-gray,
 .card-subtitle,
 .new-accounts ul.chats li.chat-persons a p.joined-date {
@@ -135,6 +166,9 @@ h6 {
 
 p {
   font-size: 13px
+}
+p:first-letter {
+  text-transform:capitalize;
 }
 
 .text-gray,
@@ -146,11 +180,11 @@ p {
 .weather-data {
   text-align: center;
   align-content: center;
-  padding: 0 0 38px
+  padding: 0;
 }
 
-.card-weather {
-  padding: 0 0 4.75rem
+.card-weather .weather-data {
+  padding: 0 0 2rem
   
 }
 
@@ -182,6 +216,10 @@ p {
 .mb-0,
 .my-0 {
   margin-bottom: 0 !important
+}
+
+.msp-3 {
+  margin-top: 10px;
 }
 
 .card-weather .weekly-weather .weekly-weather-item i {
