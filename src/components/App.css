@@ -60,7 +60,7 @@ body {
     margin-top: 50px;
   }
   .extras {
-    margin-top: 25px;
+    margin-top: 35px;
   }
 }
 
@@ -203,14 +203,14 @@ p:first-letter {
 
 .card-weather .weekly-weather {
   background: #ffffff;
-  overflow-x: auto
+  overflow-x: auto;
 }
 
 .card-weather .weekly-weather .weekly-weather-item {
   flex: 0 0 14.28%;
   border-right: 1px solid #f2f2f2;
   padding: 1rem;
-  text-align: center
+  text-align: center;
 }
 
 .mb-0,
