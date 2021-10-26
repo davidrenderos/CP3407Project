@@ -8,6 +8,7 @@ import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
+import Contact from "./Contact";
 import './App.css'
 import background from "./assets/background.jpg";
 import Geocode from "react-geocode";
@@ -62,28 +63,18 @@ function App() {
       return `${day} ${date} ${month} ${year}`
     }
 
-    
     return (
         <div style={{ backgroundImage: `url(${background})` }}>
+                            <h2>Edge Weather</h2>
         <Container
             className="d-flex align-items-center justify-content-center"
             style={{minHeight: "100vh"}}>
             
             <div className="w-100" style={{maxWidth: "400px"}}>
                 
-                <h2>Edge Weather</h2>
-            
-                <Router>
-                    <AuthProvider>
-                        <Switch>
-                            <PrivateRoute exact path="/" component={Dashboard}/>
-                            <PrivateRoute path="/update-profile" component={UpdateProfile}/>
-                            <Route path="/signup" component={Signup}/>
-                            <Route path="/login" component={Login}/>
-                            <Route path="/forgot-password" component={ForgotPassword}/>
-                        </Switch>
-                    </AuthProvider>
-                </Router>
+
+                
+
 
             
                 <input text="text" placeholder="Enter a location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchStart}/>
@@ -111,10 +102,37 @@ function App() {
 
                     </div>
                 ) : ('')}
-            
+
             </div>
-            
+
         </Container>
+        <Container
+            className="d-flex align-items-center justify-content-center"
+            style={{minHeight: "100vh"}}>            
+            <div className="w-100" style={{maxWidth: "400px"}}>
+                <Router>
+                            <AuthProvider>
+
+                                <Switch>
+                                    <PrivateRoute exact path="/" component={Dashboard}/>
+                                    <PrivateRoute path="/update-profile" component={UpdateProfile}/>
+                                    <Route path="/signup" component={Signup}/>
+                                    <Route path="/login" component={Login}/>
+                                    <Route path="/forgot-password" component={ForgotPassword}/>
+                                </Switch>
+                            </AuthProvider>
+                        </Router>
+            </div>
+        </Container>
+
+        <Container
+            className="d-flex align-items-center justify-content-center"
+            style={{minHeight: "100vh"}}>            
+            <div className="w-100" style={{maxWidth: "600px"}}>
+            <Contact/>
+            </div>
+        </Container>
+
         </div>
     )
 }
