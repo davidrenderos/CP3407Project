@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 import {Form, Card, Button} from "react-bootstrap"
-import { db } from '../firebase';
+import {db} from '../firebase';
 
 
 const Contact = () => {
@@ -12,27 +12,27 @@ const Contact = () => {
     const [loader, setLoader] = useState(false);
 
     const handleSubmit = (e) => {
-      e.preventDefault();
-      setLoader(true);
-  
-      db.collection("feedbackReports")
-        .add({
-          name: name,
-          email: email,
-          feedback: feedback,
-        })
-        .then(() => {
-          setLoader(false);
-          alert("Your feedback has been submitted");
-        })
-        .catch((error) => {
-          alert(error.message);
-          setLoader(false);
-        });
-  
-      setName("");
-      setEmail("");
-      setFeedback("");
+        e.preventDefault();
+        setLoader(true);
+
+        db.collection("feedbackReports")
+            .add({
+                name: name,
+                email: email,
+                feedback: feedback,
+            })
+            .then(() => {
+                setLoader(false);
+                alert("Your feedback has been submitted");
+            })
+            .catch((error) => {
+                alert(error.message);
+                setLoader(false);
+            });
+
+        setName("");
+        setEmail("");
+        setFeedback("");
     };
 
 
@@ -40,31 +40,32 @@ const Contact = () => {
         <>
             <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Feedback Form</h2>
+                    <h2 className="text-center mb-4">Edge Weather Feedback</h2>
 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="name"  placeholder="John West" value={name}
-                            onChange={(e) => setName(e.target.value)}/>
+                            <Form.Control type="name" placeholder="John West" value={name}
+                                          onChange={(e) => setName(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="name@example.com" value={email}
-                            onChange={(e) => setEmail(e.target.value)}/>
+                                          onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Label>Feedback</Form.Label>
                             <Form.Control as="textarea" rows={3} placeholder="Message" value={feedback}
-                            onChange={(e) => setFeedback(e.target.value)}/>
+                                          onChange={(e) => setFeedback(e.target.value)}/>
                         </Form.Group>
 
                         <Button className="text-center mb-2" type="submit">
                             Submit
                         </Button>
                     </Form>
+
                 </Card.Body>
             </Card>
         </>

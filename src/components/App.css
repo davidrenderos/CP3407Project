@@ -11,7 +11,6 @@
   .App {
     background-size: cover;
     background-position: bottom;
-    
   }
     
   main {
@@ -20,80 +19,209 @@
     padding: 25px;
   }
   
-  .search-box {
+  .top-box {
     width: 100%;
-    margin: 0 0 75px;
-  }
-  
-  .search-box .search-bar {
-    display: block;
-    width: 100%;
-    padding: 15px;
-  
-    appearance: none;
-    background: none;
-    border: none;
-    outline: none;
-  
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 0px 0px 16px 16px;
-    margin-top: -25px;
-  
-    box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-    
-    color: #313131;
-    font-size: 20px;
-  
-    transition: 0.4s ease;
-  }
-  
-  .search-box .search-bar:focus {
-    background-color: rgba(255, 255, 255, 0.75);
-  }
-  
-  .date-box .location {
-    color: #FFF;
-    font-size: 32px;
-    font-weight: 500;
+    background: url(../components/assets/background.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+    align-content: center;
     text-align: center;
-    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+    padding-top: 10px;
   }
-  
-  .date-box .date {
-    color: #FFF;
-    font-size: 20px;
-    font-weight: 300;
-    font-style: italic;
-    text-align: center;
-    text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+
+  .title {
+    padding-top: 50px;
   }
-  
-  .weather-box {
-    text-align: center;
+
+  .search-bar {
+    padding-top: 25px;
   }
-  
-  .weather-box .temp {
-    position: relative;
-    display: inline-block;
-    margin: 15px auto;
-    background-color: rgba(185, 182, 182, 0.2);
-    border-radius: 16px;
-  
-    padding: 15px 25px;
-  
-    color: #FFF;
-    font-size: 60px;
-    font-weight: 700;
-  
-    text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
-    text-align: center;
-    box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+        
+.stretch-card>.card {
+  width: 100%;
+  min-width: 100%
+}
+
+body {
+  background-color: #f9f9fa
+}
+
+.flex {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+  .padding {
+      padding: 1.5rem
   }
-  
-  .weather-box .weather-desc {
-    color: #FFF;
-    font-size: 30px;
-    font-weight: 700;
-    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  .temp {
+    margin-top: 50px;
   }
+  .extras {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width:767.98px) {
+  .padding {
+      padding: 1rem
+  }
+  .title {
+    padding-top: 20px;
+  }
+  .search-bar {
+    padding-top: 10px;
+  }
+  .temp {
+    margin-top: 25px;
+  }
+}
+
+.padding {
+  padding: 5rem
+}
+
+.grid-margin,
+.purchace-popup>div {
+  margin-bottom: 25px
+}
+
+.card {
+  border: 0;
+  border-radius: 2px
+}
+
+.card-weather {
+  background: #e1ecff;
+  background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff)
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem
+}
+
+.card-weather .card-body:first-child {
+  background: url(../components/assets/background.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.card .card-body {
+  padding: 1.88rem 1.81rem
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-weather .weather-date-location {
+  padding: 0 0 38px
+}
+
+.h3,
+h3 {
+  font-size: 1.56rem
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500
+}
+
+.min-max {
+  font-size: 15px;
+}
+
+.description {
+  align-content: center;
+  text-align: center;
+}
+
+.text-gray,
+.card-subtitle,
+.new-accounts ul.chats li.chat-persons a p.joined-date {
+  color: #969696
+}
+
+p {
+  font-size: 13px
+}
+p:first-letter {
+  text-transform:capitalize;
+}
+
+.text-gray,
+.card-subtitle,
+.new-accounts ul.chats li.chat-persons a p.joined-date {
+  color: #969696
+}
+
+.weather-data {
+  text-align: center;
+  align-content: center;
+  padding: 0;
+}
+
+.card-weather .weather-data {
+  padding: 0 0 2rem
   
+}
+
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important
+}
+
+.display-3 {
+  font-size: 2.5rem
+}
+
+.card-weather .card-body {
+  background: #ffffff
+}
+
+.card-weather .weekly-weather {
+  background: #ffffff;
+  overflow-x: auto
+}
+
+.card-weather .weekly-weather .weekly-weather-item {
+  flex: 0 0 14.28%;
+  border-right: 1px solid #f2f2f2;
+  padding: 1rem;
+  text-align: center
+}
+
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important
+}
+
+.msp-3 {
+  margin-top: 10px;
+}
+
+.card-weather .weekly-weather .weekly-weather-item i {
+  font-size: 1.2rem
+}

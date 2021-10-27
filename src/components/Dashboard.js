@@ -31,7 +31,7 @@ export default function Dashboard() {
                     </Link> */}
                     <div className="w-100  mt-2">
                         <Button varient="link" onClick={handleLogout}>Log Out</Button>
-                     </div>
+                    </div>
                 </Card.Body>
             </Card>
 
