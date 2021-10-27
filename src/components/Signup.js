@@ -19,7 +19,6 @@ export default function Signup() {
             passwordConfirmRef.current.value) {
             return setError('Passwords do not match')
         }
-
         try {
             setError("")
             setLoading(true)
@@ -28,7 +27,6 @@ export default function Signup() {
         } catch {
             setError('Failed to create an account')
         }
-
         setLoading(false)
     }
 
@@ -51,7 +49,7 @@ export default function Signup() {
                             <Form.Label>Password Confirmation</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} required/>
                         </Form.Group>
-                        <Button disbale={loading} className="w-100" type="submit">
+                        <Button disbale={loading} className="w-100 mt-2" type="submit">
                             Sign Up
                         </Button>
                     </Form>

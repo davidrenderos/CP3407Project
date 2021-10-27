@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import Signup from "./Signup";
-import {Col, Container, Nav, Navbar, Row} from "react-bootstrap";
+import {Container, FormControl, InputGroup, Nav, Navbar} from "react-bootstrap";
 import AuthProvider from "../contexts/AuthContext";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
@@ -13,12 +13,11 @@ import Geocode from "react-geocode";
 import moment from 'moment';
 import Contact from "./Contact";
 
+
 Geocode.setApiKey("AIzaSyA5XosDPFC34pun--KQkismaRS7V1u5bns");
 Geocode.setLocationType("ROOFTOP");
 Geocode.enableDebug();
 Geocode.setRegion("au");
-
-
 const OPENWEATHER_API = {
     // key: "429736441cf3572838aa10530929f7cd",
     key: "6557810176c36fac5f0db536711a6c52",
@@ -32,7 +31,7 @@ function App() {
     const [location, setLocation] = useState("");
     const [error, setError] = useState("");
     const [weather2, setWeather2] = useState("");
-
+    // const {currentUser} = useAuth()
 
     // Get latitude & longitude from address from Google API
     // Then Get onecall weather API from OpenWeatherMap.org
@@ -77,37 +76,44 @@ function App() {
     }
 
     function combTemp() {
-        var tempOWM = parseFloat(weather.current.temp)
-        var tempWB = parseFloat(weather2.data[0].temp)
-        var comb_Temp = Math.round((tempOWM + tempWB) / 2)
-        return comb_Temp;
+        const tempOWM = parseFloat(weather.current.temp);
+        const tempWB = parseFloat(weather2.data[0].temp);
+        return Math.round((tempOWM + tempWB) / 2);
     }
-
 
     return (
         <div>
-            <Navbar bg="light" variant="light" fixed="top">
-                <Container>
-                    <Navbar.Brand href="#home">Edge Weather</Navbar.Brand>
+            <Container>
+                <Navbar variant="light" fixed="top">
+                    <Navbar.Brand>Edge Weather</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#search">Search</Nav.Link>
                         <Nav.Link href="#cred">Sign In/Up</Nav.Link>
                         <Nav.Link href="#feedback">Feedback</Nav.Link>
                     </Nav>
-                </Container>
-            </Navbar>
-
+                    <div style={{paddingRight: "0.3vw", paddingTop: "0.6vw", maxWidth: "1000px"}}>
+                    </div>
+                </Navbar>
+            </Container>
             <div id="search" className="top-box">
-                <div className="search-bar"
-                     style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
-                    <input text="text" placeholder="Please enter a search location"
-                           onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchStart}/>
-                    <h5>{error}</h5>
-                </div>
-                <div className="col-12 col-md-4">
-                </div>
+                <Container>
+                    <div className="search-bar" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '100vh',
+                    }}>
+                        <InputGroup>
+                            <FormControl onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchStart}
+                                         style={{fontSize: "2.5vw"}}
+                                         placeholder="Please enter a search location"
+                                         aria-label="Please enter a search location"
+                                         aria-describedby="basic-addon2"
+                            />
+                        </InputGroup>
+                        <h5>{error}</h5>
+                    </div>
+                </Container>
             </div>
-
 
             {(typeof weather.current != "undefined") ? (
 
@@ -118,7 +124,7 @@ function App() {
                             <div class="row">
                                 <div class="col-12 col-md-4">
                                     <div class="weather-date-location">
-                                        <h5><span class="weather-date"></span> <span
+                                        <h5><span class="weather-date"/> <span
                                             class="weather-location">{location}</span></h5>
                                         <h3 class="text-white">{moment((weather.current.dt) * 1000).format("dddd")}</h3>
                                         <p class="text-white"><span
@@ -169,7 +175,6 @@ function App() {
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-body p-0">
                             <div class="d-flex weekly-weather">
                                 <div class="weekly-weather-item">
@@ -242,12 +247,11 @@ function App() {
                 // weather card ends
 
             ) : ('')}
-
             <div id="cred">
                 <Container
                     className="d-flex align-items-center justify-content-center"
                     style={{MinHeight: "100vh"}}>
-                    <div className="w-100" style={{maxWidth: "400px"}}>
+                    <div className="w-100" style={{maxWidth: "400px", paddingTop: "150px"}}>
                         <Router>
                             <AuthProvider>
                                 <Switch>
@@ -270,7 +274,6 @@ function App() {
                     <div className="w-100" style={{maxWidth: "800px"}}>
                         <Contact/>
                     </div>
-
                 </Container>
             </div>
         </div>

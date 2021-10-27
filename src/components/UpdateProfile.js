@@ -19,7 +19,6 @@ export default function UpdateProfile() {
             passwordConfirmRef.current.value) {
             return setError('Passwords do not match')
         }
-
         const promises = []
         setLoading(true)
         setError("")

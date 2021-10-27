@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useState} from 'react'
 import {Form, Card, Button} from "react-bootstrap"
 import {db} from '../firebase';
 
@@ -46,24 +46,26 @@ const Contact = () => {
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="name" placeholder="John West" value={name}
-                                          onChange={(e) => setName(e.target.value)}/>
+                                          onChange={(e) => setName(e.target.value)} required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="name@example.com" value={email}
-                                          onChange={(e) => setEmail(e.target.value)}/>
+                                          onChange={(e) => setEmail(e.target.value)} required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Label>Feedback</Form.Label>
                             <Form.Control as="textarea" rows={3} placeholder="Message" value={feedback}
-                                          onChange={(e) => setFeedback(e.target.value)}/>
+                                          onChange={(e) => setFeedback(e.target.value)} required/>
                         </Form.Group>
+                        <div className="container mt-3 text-center">
+                            <Button className="text-center mb-2" type="submit" size="lg" style={{ background: loader ? "#ccc" : " rgb(13, 110, 253)" }}>
+                                Submit
+                            </Button>
+                        </div>
 
-                        <Button className="text-center mb-2" type="submit">
-                            Submit
-                        </Button>
                     </Form>
 
                 </Card.Body>

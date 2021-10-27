@@ -33,16 +33,6 @@ main {
     padding-top: 50px;
 }
 
-.search-bar {
-    font-size: 2.5vw;
-
-}
-
-input {
-    width: 40%;
-    height: 10%;
-}
-
 .stretch-card > .card {
     width: 100%;
     min-width: 100%
