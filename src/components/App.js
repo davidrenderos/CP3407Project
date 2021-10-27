@@ -30,7 +30,8 @@ function App() {
     const [weather, setWeather] = useState({});
     const [location, setLocation] = useState("");
     const [error, setError] = useState("");
-
+    const [weather2, setWeather2] = useState("");
+        
        
     // Get latitude & longitude from address from Google API
     // Then Get onecall weather API from OpenWeatherMap.org
@@ -43,6 +44,11 @@ function App() {
                     setLocation(response.results[0].formatted_address);                 
                     console.log(lat, lng);  
                     console.log(response);
+                fetch(`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&key=a1c61cc31ab047dfb0d1bedfd86824b3&include=minutely`)
+                .then(res2 => res2.json())
+                .then(result2 => {
+                    setWeather2(result2);
+                    console.log(result2);
                 fetch(`${OPENWEATHER_API.base}/onecall?lat=${lat}&lon=${lng}&exclude={part}&units=metric&appid=${OPENWEATHER_API.key}`)
                 .then(res => res.json())
                 .then(result => {
@@ -50,7 +56,8 @@ function App() {
                     setQuery('');
                     console.log(result);
                     setError("");
-                  });
+                });
+                });
                 },
                 (error) => {
                     console.error(error);
@@ -67,7 +74,15 @@ function App() {
         }
         return splitStr.join(' '); 
      }
-      
+
+     function combTemp() {
+        var tempOWM = parseFloat(weather.current.temp)
+        var tempWB = parseFloat(weather2.data[0].temp)
+        var comb_Temp = Math.round((tempOWM+tempWB)/2)
+        return comb_Temp;
+     }
+     
+
 
 
     return (
@@ -80,7 +95,7 @@ function App() {
                         </div>
                         <div className="search-bar">
                             <input text="text" placeholder="Enter search location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchStart}/>
-                            <p>{error}</p>
+                            <h5>{error}</h5>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
@@ -118,6 +133,7 @@ function App() {
                                         <h5> <span class="weather-date"></span> <span class="weather-location">{location}</span> </h5>
                                         <h3 class="text-white">{moment((weather.current.dt)*1000).format("dddd")}</h3>
                                         <p class="text-white"> <span class="weather-date">{moment((weather.current.dt)*1000).format("MMMM Do YYYY")}</span></p>                                                       
+                                        <p class="text-white"> <span class="weather-date">{moment((weather.current.dt)*1000).format("LT")}</span></p>
                                     <div class="description">
                                         <img src={`https://openweathermap.org/img/w/${weather.current.weather[0].icon}.png`} alt="Weather Icon" width="150px" height="150px"/>
                                         <h5> {titleCase(weather.current.weather[0].description)}</h5>
@@ -127,7 +143,7 @@ function App() {
                                 <div class="col-12 col-md-4" >
                                     <div class="weather-data">
                                         <div class="temp">
-                                            <h4 class="display-3">{Math.round(weather.current.temp)}&deg;</h4>
+                                            <h4 class="display-3">{combTemp()}&deg;</h4>
                                             <h5 class="text-gray"> Feels like {Math.round(weather.current.feels_like)}&deg;</h5>
                                             <p class="min-max">{Math.round(weather.daily[0].temp.min)}&deg; Min / {Math.round(weather.daily[1].temp.max)}&deg; Max</p>
                                         </div>
@@ -135,17 +151,20 @@ function App() {
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <div class="extras">
-                                        <h5 class="tex-gray">{/* <p>Rain {weather.current}</p> */}</h5>
+                                        <h5 class="text-gray">Rain {weather2.data[0].precip} mm</h5>
+                                        <p></p>
                                         <h5 class="text-gray">Wind - {weather.daily[0].wind_speed} m/s</h5>
+
                                         <p></p>
                                         <h5 class="text-gray">Gusts - {weather.daily[0].wind_gust} m/s</h5>
                                         <p></p>
                                         <h5 class="text-gray">Humidity - {weather.daily[0].humidity} %</h5>
                                         <p></p>
-                                        <h5 class="text-gray">UV Index - {weather.daily[0].uvi}</h5>
+                                        <h5 class="text-gray">UV Index - {Math.round(weather.daily[0].uvi)}</h5>
+                                        <h5 class="text-gray">Air Quality Index - {weather2.data[0].aqi}</h5>
                                         <p></p>
                                         <h5 class="text-gray">Sunrise - {moment((weather.daily[0].sunrise)*1000).format("LT")}</h5>
-                                        <h5 class="text-gray">Sunset - {moment((weather.daily[0].sunset)*1000).format("LT")}</h5>
+                                        <h5 class="text-gray">Sunset  - {moment((weather.daily[0].sunset)*1000).format("LT")}</h5>
                                         <p></p>
                                     </div>
                                 </div>
