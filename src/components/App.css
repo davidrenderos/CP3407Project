@@ -2,24 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Montserrat', sans-serif;
-  }
-  
-  .App {
+}
+
+.App {
     background-size: cover;
     background-position: bottom;
-  }
-    
-  main {
+}
+
+main {
     min-height: 100vh;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
     padding: 25px;
-  }
-  
-  .top-box {
+}
+
+.top-box {
     width: 100%;
     background: url(../components/assets/background.jpg) no-repeat center;
     background-size: cover;
@@ -27,110 +27,111 @@
     align-content: center;
     text-align: center;
     padding-top: 10px;
-  }
+}
 
-  .title {
+.title {
     padding-top: 50px;
-  }
+}
 
-  .search-bar {
-    padding-top: 25px;
-  }
-        
-.stretch-card>.card {
-  width: 100%;
-  min-width: 100%
+.stretch-card > .card {
+    width: 100%;
+    min-width: 100%
 }
 
 body {
-  background-color: #f9f9fa
+    background-color: #f9f9fa
 }
 
 .flex {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
 }
 
-@media (max-width:991.98px) {
-  .padding {
-      padding: 1.5rem
-  }
-  .temp {
-    margin-top: 50px;
-  }
-  .extras {
-    margin-top: 35px;
-  }
+@media (max-width: 991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+
+    .temp {
+        margin-top: 50px;
+    }
+
+    .extras {
+        margin-top: 35px;
+    }
 }
 
-@media (max-width:767.98px) {
-  .padding {
-      padding: 1rem
-  }
-  .title {
-    padding-top: 20px;
-  }
-  .search-bar {
-    padding-top: 10px;
-  }
-  .temp {
-    margin-top: 25px;
-  }
+@media (max-width: 767.98px) {
+    .padding {
+        padding: 1rem
+    }
+
+    .title {
+        padding-top: 20px;
+    }
+
+    .search-bar {
+        padding-top: 10px;
+    }
+
+    .temp {
+        margin-top: 25px;
+    }
 }
 
 .padding {
-  padding: 5rem
+    padding: 5rem
 }
 
 .grid-margin,
-.purchace-popup>div {
-  margin-bottom: 25px
+.purchace-popup > div {
+    margin-bottom: 25px
 }
 
 .card {
-  border: 0;
-  border-radius: 2px
+    border: 0;
+    border-radius: 2px
 }
 
 .card-weather {
-  background: #e1ecff;
-  background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff)
+    background: #e1ecff;
+    background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff)
 }
 
 .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem
 }
 
 .card-weather .card-body:first-child {
-  background: url(../components/assets/background.jpg) no-repeat center;
-  background-size: cover;
+    background: url(../components/assets/background.jpg) no-repeat center;
+    background-size: cover;
 }
 
 .card .card-body {
-  padding: 1.88rem 1.81rem
+    padding: 1.88rem 1.81rem
 }
 
 .card-body {
-  flex: 1 1 auto;
-  padding: 1.25rem;
+    flex: 1 1 auto;
+    padding: 1.25rem;
 }
 
 .card-weather .weather-date-location {
-  padding: 0 0 38px
+    padding: 0 0 38px
 }
 
 .h3,
 h3 {
-  font-size: 1.56rem
+    font-size: 1.56rem
 }
 
 .h1,
@@ -145,83 +146,84 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500
+    font-family: "Poppins", sans-serif;
+    font-weight: 500
 }
 
 .min-max {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .description {
-  align-content: center;
-  text-align: center;
+    align-content: center;
+    text-align: center;
 }
 
 .text-gray,
 .card-subtitle,
 .new-accounts ul.chats li.chat-persons a p.joined-date {
-  color: #969696
+    color: #969696
 }
 
 p {
-  font-size: 13px
+    font-size: 13px
 }
+
 p:first-letter {
-  text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 .text-gray,
 .card-subtitle,
 .new-accounts ul.chats li.chat-persons a p.joined-date {
-  color: #969696
+    color: #969696
 }
 
 .weather-data {
-  text-align: center;
-  align-content: center;
-  padding: 0;
+    text-align: center;
+    align-content: center;
+    padding: 0;
 }
 
 .card-weather .weather-data {
-  padding: 0 0 2rem
-  
+    padding: 0 0 2rem
+
 }
 
 .mr-auto,
 .mx-auto {
-  margin-right: auto !important
+    margin-right: auto !important
 }
 
 .display-3 {
-  font-size: 2.5rem
+    font-size: 2.5rem
 }
 
 .card-weather .card-body {
-  background: #ffffff
+    background: #ffffff
 }
 
 .card-weather .weekly-weather {
-  background: #ffffff;
-  overflow-x: auto;
+    background: #ffffff;
+    overflow-x: auto;
 }
 
 .card-weather .weekly-weather .weekly-weather-item {
-  flex: 0 0 14.28%;
-  border-right: 1px solid #f2f2f2;
-  padding: 1rem;
-  text-align: center;
+    flex: 0 0 14.28%;
+    border-right: 1px solid #f2f2f2;
+    padding: 1rem;
+    text-align: center;
 }
 
 .mb-0,
 .my-0 {
-  margin-bottom: 0 !important
+    margin-bottom: 0 !important
 }
 
 .msp-3 {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .card-weather .weekly-weather .weekly-weather-item i {
-  font-size: 1.2rem
+    font-size: 1.2rem
 }
