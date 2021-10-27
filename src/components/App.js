@@ -154,6 +154,8 @@ function App() {
                                         <h5 class="text-gray">Rain {weather2.data[0].precip} mm</h5>
                                         <p></p>
                                         <h5 class="text-gray">Wind - {weather.daily[0].wind_speed} m/s</h5>
+
+                                        <p></p>
                                         <h5 class="text-gray">Gusts - {weather.daily[0].wind_gust} m/s</h5>
                                         <p></p>
                                         <h5 class="text-gray">Humidity - {weather.daily[0].humidity} %</h5>
