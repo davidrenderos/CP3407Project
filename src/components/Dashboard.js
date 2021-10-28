@@ -13,7 +13,7 @@ export default function Dashboard() {
     useEffect(()=> {
         getUserInfo()
 
-    }, []);
+    });
     async function getUserInfo () {
         const data = await queryFirestore();
         const {name, city} = data.docs[0].data();
@@ -65,7 +65,10 @@ export default function Dashboard() {
                 <Card.Body>
                     <h2 className="text-center mb-4">Profile</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
-                    <strong>Logged in as: </strong> {currentUser.email}
+                    <strong>Logged in as: </strong> {name}
+                    <strong>Email: </strong> {currentUser.email}
+                    <strong>City: </strong> {city}
+
                     <Link to="/update-profile" className="btn btn-primary w-100
                     mt-3">Update Profile
                     </Link>
