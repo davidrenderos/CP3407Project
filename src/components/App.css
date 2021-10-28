@@ -71,10 +71,6 @@ body {
         padding-top: 20px;
     }
 
-    .search-bar {
-        padding-top: 10px;
-    }
-
     .temp {
         margin-top: 25px;
     }
@@ -226,4 +222,20 @@ p:first-letter {
 
 .card-weather .weekly-weather .weekly-weather-item i {
     font-size: 1.2rem
+}
+
+.navbar-light .navbar-brand {
+    font-size: 2.4vw;
+    padding-right: 1vw;
+    padding-left: 1vw;
+}
+
+.navbar-expand .navbar-nav {
+    font-size: 1.4vw;
+}
+
+.color-nav {
+    opacity: 98%;
+    background-color: white;
+
 }
