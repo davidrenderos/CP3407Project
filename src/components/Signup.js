@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react'
 import {Form, Button, Card, Alert} from "react-bootstrap"
 import {useAuth} from '../contexts/AuthContext'
 import {Link, useHistory} from 'react-router-dom'
+import {db} from "../firebase";
 
 export default function Signup() {
     const emailRef = useRef()
@@ -11,6 +12,8 @@ export default function Signup() {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const nameRef = useRef()
+    const cityRef = useRef()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -22,6 +25,12 @@ export default function Signup() {
         try {
             setError("")
             setLoading(true)
+            await db.collection("userDetails")
+                .add({
+                    email: emailRef.current.value,
+                    name: nameRef.current.value,
+                    city: cityRef.current.value,
+                })
             await signup(emailRef.current.value, passwordRef.current.value)
             history.push("/")
         } catch {
@@ -48,6 +57,14 @@ export default function Signup() {
                         <Form.Group id="password-confirm">
                             <Form.Label>Password Confirmation</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} required/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="name" placeholder="Your Full Name" ref={nameRef} required/>
+                        </Form.Group>
+                        <Form.Group className="mt-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Home City</Form.Label>
+                            <Form.Control type="" placeholder="e.g. Melbourne" ref={cityRef} required/>
                         </Form.Group>
                         <Button disbale={loading} className="w-100 mt-2" type="submit">
                             Sign Up
