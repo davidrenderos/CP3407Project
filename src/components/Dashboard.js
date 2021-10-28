@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Button, Card, Alert, Form} from "react-bootstrap"
 import {useAuth} from '../contexts/AuthContext'
 import {Link, useHistory} from "react-router-dom"
@@ -10,6 +10,20 @@ export default function Dashboard() {
     const history = useHistory()
     const [name, setName] = useState("");
     const [city, setCity] = useState("");
+    useEffect(()=> {
+        getUserInfo()
+
+    }, []);
+    async function getUserInfo () {
+        const data = await queryFirestore();
+        const {name, city} = data.docs[0].data();
+        setName(name);
+        setCity(city);
+    }
+    function queryFirestore() {
+        return db.collection("userDetails")
+            .where("email", "==", currentUser.email).get()
+    }
 
     async function handleLogout() {
         setError("")
@@ -28,6 +42,7 @@ export default function Dashboard() {
 
         db.collection("userDetails")
             .add({
+                email: currentUser.email,
                 name: name,
                 city: city,
             })

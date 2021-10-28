@@ -17,13 +17,17 @@ export default function Login() {
         try {
             setError("")
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
+            const user = await login(emailRef.current.value, passwordRef.current.value)
+            console.log(user)
+            console.log(user.email)
             history.push("/")
         } catch {
             setError('Failed to log in')
         }
         setLoading(false)
     }
+
+
 
     return (
         <>
