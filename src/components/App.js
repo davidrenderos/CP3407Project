@@ -12,6 +12,10 @@ import './App.css'
 import Geocode from "react-geocode";
 import moment from 'moment';
 import Contact from "./Contact";
+import rainwear from "./assets/rainwear.jpg";
+import sunwear from "./assets/sunwear.jpg";
+import snowwear from "./assets/snowwear.jpg";
+import airquality from "./assets/airquality.jpg";
 
 
 Geocode.setApiKey("AIzaSyA5XosDPFC34pun--KQkismaRS7V1u5bns");
@@ -81,6 +85,46 @@ function App() {
         return Math.round((tempOWM + tempWB) / 2);
     }
 
+    function getAdviceImage(id_weather_desc) {
+        if (id_weather_desc >= 200 && id_weather_desc <= 531) {
+            var imagesrc=rainwear;
+        }
+        if (id_weather_desc >= 600 && id_weather_desc <= 622) {
+            imagesrc=snowwear;
+        }
+        if (id_weather_desc >= 711 && id_weather_desc <= 731) {
+            imagesrc=airquality;
+        }
+        if ( id_weather_desc >= 751 && id_weather_desc <= 762) {
+            imagesrc=airquality;
+        }
+        if (id_weather_desc >= 800 && id_weather_desc <= 804) {
+            imagesrc=sunwear;
+        }
+        return imagesrc;
+    }
+
+    function getAdviceText(id_weather_desc) {
+        if (id_weather_desc >= 200 && id_weather_desc <= 531) {
+           var adviceText="Umbrella and Raincoats needed";
+        }
+        if (id_weather_desc >= 600 && id_weather_desc <= 622) {
+            adviceText="Warm Clothing and Layer Up";
+        }
+        if (id_weather_desc >= 711 && id_weather_desc <= 731) {
+            adviceText="Caution Poor Atmosphere Conditions";
+        }
+        if ( id_weather_desc >= 751 && id_weather_desc <= 762) {
+            adviceText="Caution Poor Atmosphere Conditions";
+        }
+        if (id_weather_desc >= 800 && id_weather_desc <= 804) {
+            adviceText="Sun or Cloud - Protect against UV rays";
+        }
+        return adviceText;
+    }
+
+
+
     return (
         <div>
             <Container>
@@ -149,6 +193,8 @@ function App() {
                                                 like {Math.round(weather.current.feels_like)}&deg;</h5>
                                             <p class="min-max">{Math.round(weather.daily[0].temp.min)}&deg; Min
                                                 / {Math.round(weather.daily[1].temp.max)}&deg; Max</p>
+                                            <img src={getAdviceImage(weather.current.weather[0].id)} alt="Advice on clothing" width="200px" height="200px"/> 
+                                            <p>{getAdviceText(weather.current.weather[0].id)}</p>
                                         </div>
                                     </div>
                                 </div>
