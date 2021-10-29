@@ -128,15 +128,13 @@ function App() {
     return (
         <div>
             <Container>
-                <Navbar variant="light" fixed="top">
-                    <Navbar.Brand>Edge Weather</Navbar.Brand>
+                <Navbar className="color-nav" variant="light" fixed="top" >
+                    <Navbar.Brand style={{fontsize:"100px"}}>Edge Weather</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#search">Search</Nav.Link>
                         <Nav.Link href="#cred">Sign In/Up</Nav.Link>
                         <Nav.Link href="#feedback">Feedback</Nav.Link>
                     </Nav>
-                    <div style={{paddingRight: "0.3vw", paddingTop: "0.6vw", maxWidth: "1000px"}}>
-                    </div>
                 </Navbar>
             </Container>
             <div id="search" className="top-box">
@@ -148,7 +146,7 @@ function App() {
                     }}>
                         <InputGroup>
                             <FormControl onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchStart}
-                                         style={{fontSize: "2.5vw"}}
+                                         style={{fontSize: "2.5vw", borderBottomRightRadius: "30px", borderTopLeftRadius: "30px"}}
                                          placeholder="Please enter a search location"
                                          aria-label="Please enter a search location"
                                          aria-describedby="basic-addon2"
